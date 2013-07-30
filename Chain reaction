@@ -79,20 +79,21 @@ if __name__=="__main__":
         if x>7 or y>7:
             print "Invalid cell "
             continue
-        if grid[x][y][(i+1)%2]!=0:
+        if grid[x][y][(i+1)%2]!=0: #if opponent has already occupied the cell
             print "Try other cell "
             continue
         grid[x][y][i]+=1
         display()
-        if grid[x][y][i]==free_dir_grid[x][y]:
+        if grid[x][y][i]==free_dir_grid[x][y]: #Cell needs to be split
             chain_reaction(x,y,i)
             display()
         if turns==2:
-            if winner():
+            if winner():        #Check if any player won
                 print player[i]+ " won the game"
                 break
         if turns<2:
             turns+=1
+        #Change player in next turn
         i+=1
         i%=2
         
