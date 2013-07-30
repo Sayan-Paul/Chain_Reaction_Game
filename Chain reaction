@@ -23,7 +23,7 @@ def display():
             print grid[i][j],
         print
 
-def winner:
+def winner():
     "Check if any player won the game"
     pass
 
@@ -37,7 +37,7 @@ if __name__=="__main__":
     player=["Red","Green"]
     while True:
         x,y=map(int,raw_input("It's player "+player[i]+"'s move: ").split())
-        if x*y<0:
+        if x<0 or y<0:
             break
         if x>7 or y>7:
             print "Invalid cell "
@@ -47,7 +47,7 @@ if __name__=="__main__":
             continue
         grid[x][y][i]+=1
         display()
-        if grid[x][y]
-        i+=1
-        i%=2
+        if grid[x][y]:
+            i+=1
+            i%=2
         
