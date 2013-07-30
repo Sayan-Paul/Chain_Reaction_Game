@@ -25,6 +25,7 @@ def display():
 
 def winner():
     "Check if any player won the game"
+    global grid
     sg=0
     sr=0
     for i in range(8):
@@ -35,9 +36,21 @@ def winner():
                 return 0
     return 1
 
-def chain_reaction(i,j):
+def chain_reaction(i,j,p,t=0):
     "Splits the current cell elements to neighbouring elements"
-    pass
+    if i<0 or i>7 or j<0 or j>7:
+        return
+    global grid
+    if t==0:
+        grid[i][j][p]=0
+    else:
+        grid[i][j][p]+=1
+        grid[i][j][(p+1)%2]=0
+    chain_reaction(i-1,j,p,1)
+    chain_reaction(i,j-1,p,1)
+    chain_reaction(i,j+1,p,1)
+    chain_reaction(i+1,j,p,1)
+    
         
 if __name__=="__main__":
     i=0
@@ -56,7 +69,7 @@ if __name__=="__main__":
         grid[x][y][i]+=1
         display()
         if grid[x][y][i]==4:
-            chain_reaction(x,y)
+            chain_reaction(x,y,p)
         if turns==2:
             if winner():
                 print player[i]+ " won the game"
