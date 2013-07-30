@@ -25,8 +25,15 @@ def display():
 
 def winner():
     "Check if any player won the game"
-    
-    pass
+    sg=0
+    sr=0
+    for i in range(8):
+        for j in range(8):
+            sr+=grid[i][j][0]
+            sg+=grid[i][j][1]
+            if sr*sg>0:
+                return 0
+    return 1
 
 def chain_reaction(i,j):
     "Splits the current cell elements to neighbouring elements"
