@@ -25,16 +25,17 @@ def display():
 
 def winner():
     "Check if any player won the game"
+    
     pass
 
 def chain_reaction(i,j):
     "Splits the current cell elements to neighbouring elements"
     pass
         
-display()
 if __name__=="__main__":
     i=0
     player=["Red","Green"]
+    turns=0
     while True:
         x,y=map(int,raw_input("It's player "+player[i]+"'s move: ").split())
         if x<0 or y<0:
@@ -47,7 +48,14 @@ if __name__=="__main__":
             continue
         grid[x][y][i]+=1
         display()
-        if grid[x][y]:
-            i+=1
-            i%=2
+        if grid[x][y][i]==4:
+            chain_reaction(x,y)
+        if turns==2:
+            if winner():
+                print player[i]+ " won the game"
+                break
+        if turns<2:
+            turns+=1
+        i+=1
+        i%=2
         
