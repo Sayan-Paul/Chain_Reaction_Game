@@ -1,0 +1,47 @@
+#################################################################
+### Chain Reactor Game Demo For Technites                       #
+###                                                             #
+#################################################################
+
+grid=[[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
+      [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
+      [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
+      [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
+      [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
+      [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
+      [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
+      [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
+      [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
+      ]
+
+def display():
+    "Display the whole game grid"
+    global grid
+    print "Game Grid"
+    for i in range(8):
+        for j in range(8):
+            print grid[i][j],
+        print
+
+def winner:
+    "Check if any player won the game"
+    pass
+
+def chain_reaction(i,j):
+    "Splits the current cell elements to neighbouring elements"
+    pass
+        
+display()
+if __name__=="__main__":
+    i=0
+    player=["Red","Green"]
+    while True:
+        x,y=map(int,raw_input("It's player "+player[i]+"'s move: ").split())
+        if x==y and x==-1:
+            break
+        grid[x][y][i]+=1
+        display()
+        
+        i+=1
+        i%=2
+        
