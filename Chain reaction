@@ -37,11 +37,17 @@ if __name__=="__main__":
     player=["Red","Green"]
     while True:
         x,y=map(int,raw_input("It's player "+player[i]+"'s move: ").split())
-        if x==y and x==-1:
+        if x*y<0:
             break
+        if x>7 or y>7:
+            print "Invalid cell "
+            continue
+        if grid[x][y][(i+1)%2]!=0:
+            print "Try other cell "
+            continue
         grid[x][y][i]+=1
         display()
-        
+        if grid[x][y]
         i+=1
         i%=2
         
