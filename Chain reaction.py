@@ -31,8 +31,15 @@ def display():
     print "Game Grid"
     for i in range(8):
         for j in range(8):
-            print grid[i][j],
+            if grid[i][j][0]==0 and grid[i][j][1]==0:
+                print "_",
+            else:
+                if grid[i][j][1]==0:
+                    print grid[i][j][0]*"R",
+                else:
+                    print grid[i][j][1]*"G",
         print
+    print
 
 def winner():
     "Check if any player won the game"
